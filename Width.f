@@ -476,8 +476,8 @@ c     the following checks for the first line of the order
       call single (mode,wave,wavout,ipt,depth,halfl,halfr,eqwdth)
 
 c***** The Prompt
- 503  message = 'RECORD THIS LINE ([y],o,a,h)?'
-      nchars = 29
+ 503  message = 'RECORD THIS LINE ([y],o,a,h)? '
+      nchars = 30
       call getasci (nchars)
 
 c**** The Prompt Options
@@ -494,6 +494,7 @@ c        record and go onto the next line
          message = 'ONE WORD NOTE ABOUT LINE : '
          nchars = 27
          call getasci (nchars)
+c        TODO: have more than 4 chars record
 c        TODO: have getinput get a string of characters ending 
 c           (1:nchars) with a <ret>
 c        call getinput (nchars)
@@ -619,21 +620,12 @@ c        toggle on and off the overplotting of lines
          go to 503
 
       elseif (array(1:1) .eq. 'h') then
-c     some on the fly help
-c         write (message,3003)
-         write (6,3003)
- 3003    format ('OPTIONS FOR RECORD',/,
-     .        'y(yes), n(no), c(continuum), v(voit), s(simpsons int), ',
-     .        'o(omit)',/,
-     .        'a(abort), b(back), li(Gauss line), r(redraw),',/,
-     .        't(toggle overplot lines), ll(choose overplot lines), ',/,
-     .        'dy(display Y-array), dz(display Z-array, ',
-     .        'p(#points/scale), .(add a note)')
-c         call prinfo (1)
+         call printh ('fithelp')         
          go to 503
+
       else
 c        Whoops, not an appropriate command 
-         write (6,*) "PLEASE ENTER VALID OPTION",
+         write (6,*) "PLEASE ENTER VALID OPTION ",
      .        "(use 'h' to view options)"
          go to 503
       endif
