@@ -28,7 +28,7 @@ c#######################################################################
       include 'Datachr.com'
       include 'Mathval.com'
       include 'Widpar.com'
-      character fname*80,mess*80,oname*80, tmp*70
+      character fname*80,mess*80,oname*80, tmp*70, widthnote*80
       character charstat*7
       real*8 wave,wavout,xnums(5),nub,spe,ep,loggf
       logical nogo,onelin, linopt, multo, firstmm
@@ -345,7 +345,7 @@ c      call single (mode,wave,wavout,ipt,depth,halfl,halfr,eqwdth)
 c      call manual (0,ipt,wave,wavout,depth,halfl,halfr,eqwdth)
 c     Changed to record on the 'y'
 c      call record (kout,linopt,onelin,wave,wavout,depth,
-c     .     halfl,halfr,eqwdth)
+c     .     halfl,halfr,eqwdth,widthnote)
 c      go to 503
 c      go to 1
 
@@ -449,7 +449,7 @@ c      This provides all the options for measuring a given line
 
 c**** Header for the output file
  51   call record (kout,linopt,onelin,wave,wavout,depth,
-     .     halfl,halfr,eqwdth)
+     .     halfl,halfr,eqwdth,widthnote)
       kout = 1
       kin = 1
 
@@ -479,16 +479,22 @@ c***** The Prompt
       call getasci (nchars)
 
 c**** The Prompt Options
-
-
       if (array(1:1).eq.'y' .or. nchars.le.0) then
 c        record and go onto the next line
          call record (kout,linopt,onelin,wave,wavout,depth,
-     .        halfl,halfr,eqwdth)
+     .        halfl,halfr,eqwdth,widthnote)
          if (onelin) go to 1
          kin = kin + 1
          kout = kout + 1
          go to 500
+
+      elseif (array(1:1) .eq. '.') then
+         message = 'Add a note:'
+         nchars = 12
+         call getasci (nchars)
+         widthnote = array
+         write (*,*) "you gave me",widthnote
+         go to 503
 
       elseif (array(1:1) .eq. 'n') then
 c        recalculate the fit manually
@@ -515,7 +521,7 @@ c        omit current line and go onto the next
          if (onelin) go to 43
          eqwdth = -9999.
          call record (kout,linopt,onelin,wave,wavout,depth,
-     .        halfl,halfr,eqwdth)
+     .        halfl,halfr,eqwdth,widthnote)
          kout = kout + 1
          kin = kin + 1
          go to 500
@@ -550,7 +556,6 @@ c        backspace (31,err=40)
          go to 500
  505    write (6,*) 'BACKSPACE ERROR'
          go to 510
-
 
       elseif (array(1:1) .eq. 'r') then
 c        replot the data (not very useful
@@ -631,8 +636,6 @@ c        Whoops, not an appropriate command
 c**** Close out and go to width prompt
  510  kout = 0
       kin = 0
-c      call record (kout,linopt,onelin,wave,wavout,depth,
-c     .     halfl,halfr,eqwdth)
       close (31)
       if (multo) then
          write (6,*) 'Read a new file in'
@@ -647,7 +650,7 @@ c==============================================================================c
 
 c**** ends the 'ln', onelin option
  43   call record (kout,linopt,onelin,wave,wavout,depth,
-     .     halfl,halfr,eqwdth)
+     .     halfl,halfr,eqwdth,widthnote)
 
 c**** reset the plot boundaries and return
  2    xleft = wlx(1)

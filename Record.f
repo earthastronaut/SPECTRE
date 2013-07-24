@@ -59,10 +59,13 @@ c***** If the line is not omitted
          wid = 1000.*eqwdth
 c     Happens everytime line is not omitted
          if (depth .gt. 0.05) then
-            write (array,1004) wave,wavout,halfl,halfr,depth,wid
+            write (array,1004) wave,wavout,halfl,halfr,depth,wid,
+     .           widthnote
  1004       format (2f13.3,2f10.4,f10.3,f14.1)
          else
-            write (array,1008) wave,wavout,halfl,halfr,depth,wid
+            write (array,1008) wave,wavout,halfl,halfr,depth,wid,
+     .           widthnote
+
  1008       format (2f13.3,2f10.4,f10.4,f14.2)
          endif
 
@@ -72,9 +75,12 @@ c     Happens only when the line is recorded in a file
 
          if (.not.onelin .and. kout .gt. 0) then
             if (depth .gt. 0.05) then
-               write (31,1004) wave,wavout,halfl,halfr,depth,wid
+               write (31,1004) wave,wavout,halfl,halfr,depth,wid,
+     .           widthnote
             else
-               write (31,1008) wave,wavout,halfl,halfr,depth,wid
+               write (31,1008) wave,wavout,halfl,halfr,depth,wid,
+     .           widthnote
+
             endif
          endif
       endif
