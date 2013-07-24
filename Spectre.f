@@ -27,7 +27,7 @@ c==================   USER SETUP AREA  ========================================c
 c     Declare the path to the code. This is used to find the line list files
 c     used in Changelinelist.f and the helpfile in Printh.f
 c     Please end the path with "/"
-      codepath = "/Applications/astro/spectre2.3.4/"
+      codepath = "/Applications/astro/dsgSPECTRE/"
 
 
 

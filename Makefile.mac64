@@ -8,7 +8,7 @@
 CC = cc
 
 # using gfotran-snwleo-intel-bin.tar.gz from http://hpc.sourceforge.net/
-F77 = /usr/local/bin/gfortran -std=legacy
+F77 = /usr/local/bin/gfortran -std=legacy -ffixed-line-length-100
 
 FC = /usr/local/bin/gfortran -Wall-O0  -Wnonstd-intrinsics 
 FFLAGS = -c -O0 -fsecond-underscore
