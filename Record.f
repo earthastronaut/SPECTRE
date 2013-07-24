@@ -25,7 +25,7 @@ c*****Header Info
  1005    format (1h )
          write (31,1003)
  1003    format (2(3x,'WAVELENGTH'),2(2x,'HALFWDTH'),
-     .        5x,'DEPTH',6x,'E.W.(mA)')
+     .        5x,'DEPTH',3x,'E.W.(mA)')
          write (31,1002)
  1002    format (4x,'(DESIRED)',6x,'(FOUND)',4x,'(LEFT)',
      .        3x,'(RIGHT)')
@@ -45,7 +45,7 @@ c     endif
 c*****If line is to be omitted
       if (eqwdth .eq. -9999.) then
          write (array,1007) wave,wavout
- 1007    format (2f13.3,3(4x,'------'),9x,'------')
+ 1007    format (2f13.3,4(4x,'------'))
 c     the difference being this is written to a file
          if (.not.onelin .and. kout .gt. 0 ) then
 c     if (kount .eq. kkount) backspace (unit=31)
@@ -61,12 +61,12 @@ c     Happens everytime line is not omitted
          if (depth .gt. 0.05) then
             write (array,1004) wave,wavout,halfl,halfr,depth,wid,
      .           widthnote
- 1004       format (2f13.3,2f10.4,f10.3,f14.1)
+ 1004       format (2f13.3,2f10.4,f10.3,f10.1,2x,a)
          else
             write (array,1008) wave,wavout,halfl,halfr,depth,wid,
      .           widthnote
 
- 1008       format (2f13.3,2f10.4,f10.4,f14.2)
+ 1008       format (2f13.3,2f10.4,f10.4,f10.2,2x,a)
          endif
 
 c     I think onelin corresponds to a single measurement, here .not. is 
@@ -75,15 +75,16 @@ c     Happens only when the line is recorded in a file
 
          if (.not.onelin .and. kout .gt. 0) then
             if (depth .gt. 0.05) then
-               write (31,1004) wave,wavout,halfl,halfr,depth,wid,
+               write (31,1110) wave,wavout,halfl,halfr,depth,wid,
      .           widthnote
             else
-               write (31,1008) wave,wavout,halfl,halfr,depth,wid,
+               write (31,1110) wave,wavout,halfl,halfr,depth,wid,
      .           widthnote
-
             endif
          endif
       endif
+ 1110 format (2f13.3,2f10.4,f10.3,f10.2,2x,a)
+
       call prinfo (3)
       return
  
