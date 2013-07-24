@@ -1,0 +1,63 @@
+#!/usr/bin/make
+#
+# makefile for SPECTRE on Redhat 64-Bit System
+#
+################################################################################
+#===================  USER MAY HAVE TO CHANGE PATHS ===========================#
+#====> Compilers and Flags
+F77 = f77 -Wall
+
+#====> Libraries and Flags
+# the following line points to the X11 libraries
+X11LIB = /usr/lib64
+SMLIB = /uufs/astro.utah.edu/sys/pkg/sm/std/lib
+
+#===================  USER MAY HAVE TO CHANGE PATHS ===========================#
+################################################################################
+
+# Object files for creating SPECTRE
+OBJECTS = Average.o Blank.o Blowbox.o Blowx.o Blowy.o Charith.o \
+          Comtalk.o Const.o Cont.o Contin.o Correl.o Cosbell.o Crays.o \
+          Cross.o Dark.o Deconv.o Detrm4.o Dex.o Dishead.o Divide.o \
+          Dskfil.o Dump.o Edit.o Eight.o Elines.o Estim.o Expblow.o \
+          Fft.o Findtic.o Fillist.o Findmin.o Findcont.o Flatcont.o \
+          Flip.o Fourpn.o Fourpt.o Fracton.o Fts.o Gauss.o Getasci.o \
+          Getcom.o Getline.o Getnum.o Gfill.o Glitch.o Hit.o Hunt.o \
+          H2omake.o Interp.o Killf.o Labset.o Logit.o Lsd.o Manual.o \
+          Merge.o Minimax.o Mkgauss.o Mkline.o Move.o Mrklin.o Nansi.o \
+          Newcont.o Noise.o Number.o Paperpl.o Parab.o Peek.o Pfill.o \
+          Pfilt.o Pick.o Plotxy.o Plus.o Positon.o Prdata.o Prinfo.o \
+          Printh.o Putasci.o Puterr.o Quit.o Readcf.o Rebin.o Reed.new.o \
+          Record.o Remove.o Remzero.o Rescal.o Rnorm.o Rtext.o Save.redhat.o \
+          Savecf.o Scale.o Sclbgn.o Screenstat.o Setcont.o Setplt.o \
+          Setre.o Shuffle.o Simp.o Sine.o Single.o Solve.o Sort.o \
+          Spectre.o Splint.o Splitds.o Spln.o Splnc.o Startup.redhat.o \
+          Stext.o Switch.o Syminv.o Taucalc.o Tellur.o Tilt.o Title.o \
+          Velocity.o Velset.o Voigtcal.o Voigtfit.o Wave.o Wavelst.o \
+          Which.o Width.o Yshift.o Zoom.o Zot.o \
+	  Multicmd.o Cropstr.o\
+	  Setav.o Changelinelist.o Plotlines.o
+
+# Common variables to be included in subroutines
+COMMON =  Chars.com Datachr.com Dataval.com Mathval.com Plotchr.com \
+          Plotval.com Scrnval.com Widpar.com 
+
+
+# The compilation and linking commands
+all: SPECTRE ;
+	@echo ----------------------------------------------
+	@echo Make sure you have the correct path to the 
+	@echo code within the Spectre.f file
+	@echo ----------------------------------------------
+	@echo
+	@echo
+ 
+SPECTRE:  $(OBJECTS);
+	$(FC) $(OBJECTS) -o SPECTRE -L$(X11LIB) -lX11 \
+	-L$(SMLIB) \
+	-ltk -ltcl -lplotsub -ldevices -lutils
+ 
+$(OBJECTS): $(COMMON)
+ 
+clean:
+	-rm -f *.o SPECTRE libSPECTRE.a

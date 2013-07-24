@@ -1,0 +1,162 @@
+
+
+==========================================================
+version 2.3.4  [CURRENT]
+==========================================================
+Author: Dylan Gregersen
+Author Email: gregersen.dylan@gmail.com
+Date: June 17, 2013
+
+
+Changed the way files are declared. I had to create Cropstr.f which finds assumes a string to be one word and finds the index where that word ends (and white space begins). Allows you to crop strings based on whitespace
+
+Added 'exit' option to Spectre.f not just 'quit'
+
+Started to create a history file in Startup.f which would allow the user to scroll back through previous commands they types (Unfinished)
+
+Created "mc" Multicmd.f which incorporated all of the previous
+multiple file commands 'am','dm','vm'
+
+Got rid of Save.auto.f and just make part of Save.redhat.f
+
+Got rid of Reed.auto.f and just make it part of Reed.new.f
+
+Edited all the Makefiles to reflect the correct information though I only know the rh64 and mac64 will work for sure.
+
+Note: I've been updating the helpfile along the way with information
+Also I changed the way it interacts with subroutine comtalk. This will allow to give more specific information about commands within command loops (like MULTI)
+
+
+
+Cleaned up many files with better comments
+
+Added overplot of absorption lines to the main SP>d0 
+included file
+Changelinelist.f  < this file gives the paths to all the linelists and allows you to change which one is being shown
+SP>lp  < for line plot
+
+
+
+==========================================================
+version 2.3.3  
+==========================================================
+Author: Dylan Gregersen
+Author Email: gregersen.dylan@gmail.com
+Date: May 3, 2013
+
+this version adds one more feature to SP>eq>mm so that the previous
+order is stored in the y array
+
+also allows for changing which line list is overplot and for overplotting
+lines at any time
+
+also expands data arrays to 10000 points. Chris Sneden commented that the effects of lengthening these arrays is not well known but he noted that some Fourier transform work require arrays to be powers-of-2 in length
+should probably have made it 16384 (=2**14) in length 
+
+
+==========================================================
+version 2.3.2
+==========================================================
+Author: Dylan Gregersen
+Author Email: gregersen.dylan@gmail.com
+Date: Oct. 17, 2012
+
+this version has some added interface options when running SP>eq
+added solar atlas lines shown during the SP>eq>'mm','ml', or 'ln' commands
+added ability to view both the y and z arrays during measuring
+added ability to average over muliple files 'am'
+
+added remaining part of the linelist to the bottom display in 'ml'
+
+changed Setcont.f, Cont.f, and Plotxy.f  so that I can reset a 'cd' continuum divide without exiting and re-entering 'cd'
+
+Changed:
+Dataval.com to pass the variable
+Startup.f to initiate with '  '
+Width.f to read in new and then reset when done
+Single.f and Manual.f with code to plot the information
+
+
+==========================================================
+version 2.3.1
+==========================================================
+Author: Dylan Gregersen
+Author Email: gregersen.dylan@gmail.com
+Date: June 18, 2012
+
+Attempt to make polynomial fit to the wavelength solution
+Not incoroporated
+
+==========================================================
+version 2.3.0
+==========================================================
+Author: Dylan Gregersen
+Author Email: gregersen.dylan@gmail.com
+Date: June 13, 2012
+
+added atomic lines to the SP>eq>ml display
+
+read in MAKEE fits files
+many changes to Reed.redhat.f => Ree.new.f 
+changed Wave.f to read in the 7th order polynomial for the wavelength solution
+
+Noted: the wavelength solution gets linearlized when saving out. Need to do a fitting to the pixels and wavelength to get a more accurate solution. 
+
+
+
+==========================================================
+version 2.2.1
+==========================================================
+Author: Dylan Gregersen
+Author Email: gregersen.dylan@gmail.com
+Date: January 3, 2012
+
+corrected problem that reading into the z array (SP>'rd' >z > filename ) would erase the z array by changing the array length in Dataval.com and Mathval.com from 4096 to 7000
+ 
+
+==========================================================
+Adopted Version
+==========================================================
+This version of spectre was adopted from /uufs/astro.utah.edu/common/home/u0565532/bigspec/   Which extended array lengths to deal with longer text arrays
+
+and then files were edited to match previous edits on Dylan Gregersen's Labtop SPECTRE. 
+Files which were edited appear next to a file *.orig.f which was the original file from the path given above (e.g. Spectre.f is the edit of Spectre.orig.f). 
+
+
+################################################################################
+APPENDIX
+
+These files have at one point been edited since the original download
+Average_orig.f
+Cont_orig.f
+Correl_orig.f
+Crays_orig.f
+Deconv_orig.f
+Edit_orig.f
+Findcont_orig.f
+Flatcont_orig.f
+Fts_orig.f
+Gauss_orig.f
+Getline_orig.f
+Hunt_orig.f
+Manual_orig.f
+Mkline_orig.f
+Mrklin_orig.f
+Noise_orig.f
+Pick_orig.f
+Plotval_orig.com
+Plotxy_orig.f
+Positon_orig.f
+Rebin_orig.f
+Record_dsgorig.f
+Record_orig.f
+Reed_orig.redhat.f
+Rmline_orig.f
+Save.redhat_orig.f
+Scale_orig.f
+Setcont_orig.f
+Simp_orig.f
+Single_orig.f
+Spectre_orig.f
+Startup.redhat_orig.f
+Wave_orig.f

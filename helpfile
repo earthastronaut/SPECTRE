@@ -1,0 +1,679 @@
+This help file is organized by sections (e.g. ^comhelp^) which are called and read by the routine Printh.f
+character section*7
+
+There are also subsections (e.g. ^av comhelp^) which gives help on the subsection which is done which Comtalk.f
+
+character subsection*(2+1+7)
+character subsection*10
+
+^comhelp^
+SPECTRE MAIN LOOP COMMAND SUMMARY
+4n = 4x4 point normalization          4p = 4 point Reticon normalization    
+8p = eight point normalization        ?? = more help for specific command      
+ac = addition of a constant           ad = addition of x and y arrays       
+ag = plot again with same bounds      al = antilog of the points            
+av = average (smooth) the spectrum    bb = blowup the plot in 2 dimensions  
+bx = blowup in x only                 by = blowup in y only                 
+cc = cross-correlate x and y [P]      cd = continuum division               
+ch = chop off ends of array           cl = clear the information screen     
+cr = fix cosmic ray hits              d0 = display the whole x-array        
+dc = make a dispersion curve [P]      de = deconvolve a spectrum            
+df = delete files                     du = dump arrays in (x,y) pairs       
+dv = division of x by y-array         dx = display x-array                  
+dy = display y-array                  dz = display z-array                  
+eb = blowup plot with named bounds    ed = edit bad data points             
+el = do emission line plots           eq = calculate equivalent widths [P]  
+fc = flatten continuum, reg. spacing  fl = flatten continuum (file)         
+ft = fourier transform smoothing      fz = force lower plot bound to zero   
+gl = bad data point removal           hc = make hardcopy plots              
+hd = display FITS header lines        he = list commands for SPECTRE        
+lg = base10 log of points             li = make a Gaussian line             
+ll = change the overplot line list    lp = overplot lines onto current plot 
+ls = list directory contents          mc = run commands on multiple files   
+me = merge the x and y arrays         mo = move spectrum to another array   
+mu = multiply by a constant           no = calculate the S/N of a spectrum  
+pi = give point value under cursor    pl = repeatedly do "pi"               
+po = point at the named line          pr = write point values of arrays     
+px = plot points in x-array           py = plot points in y-array           
+pz = plot points in z-array           qu = quit SPECTRE                     
+r0 = remove zeroes from spectra       rb = re-bin for different steps       
+rd = read a spectrum                  re = replace spectrum file            
+rm = remove telluric lines [P]        rn = renormalize spectrum             
+rt = read text file                   sa = save spectrum to new file        
+sc = set continuum into y-array       si = create a sine wave in x          
+sp = split display into 2 parts       st = redisplay status screen          
+su = subtraction of x and y arrays    tc = compute optical depths           
+ti = give a new FITS object keyword   tl = correct spectrum flux tilt       
+vn = cancel a radial velocity shift   vs = set a desired r.v. shift         
+vy = apply a radial velocity shift    wv = create an H2O spectrum           
+xp = expand the number of points      xy = exchange x and y arrays          
+xz = exchange x and z arrays          yz = exchange y and z arrays          
+ze = zero array ends                  zi = zoom in on a plot                
+zo = zoom out on a plot
+
+^corhelp^
+CROSS CORRELATION COMMAND SUMMARY
+ab = Do a general abort and return to the main program
+go = Do the cross correlation and print/plot the results
+he = Print out this file on the information screen
+qu = quit and return to the main program
+ra = set the parameter values (#pts for display, #pts for the correlation,
+        maximum correlation shift)
+
+^divhelp^
+TELLURIC LINE DIVISION COMMAND SUMMARY      
+ab = abort and return to SPECTRE
+au = automatically perform the several steps necessary for the divisions
+cr = perform a cross-correlation between the dividend and divisor arrays
+ds = display the dividend array
+db = display the dividend and divisor arrays
+dv = do the division, using a line strength factor input from the
+        keyboard
+fs = force a pixel shift named by the user
+he = display a summary of the commands
+pe = "peek" at blown-up sections of dividend, divisor, and/or quotient
+        arrays
+qu = quit the routine
+rn = renormalize the arrays to 1.0
+sh = shift the divisor array by an amount given from the keyboard
+
+^multihelp^
+MULTIPLE FILES COMMAND SUMMARY
+?? = more help on specific commands
+av = average (smooth) the spectrum
+du = dump arrays in (x,y) pairs
+he = this help screen
+vs = apply a desired radial velocity or wavelength shift
+
+^parhelp^
+LINE PARAMETER COMMAND SUMMARY 
+he = write out the list of WIDTH commands on the screen.
+hw = get the half-width of the line
+qu = quit, and return to SPECTRE
+sh = show (plot) a particular line
+wd = get the width of a line at a particular percentage depth
+
+^scahelp^
+WAVELENGTH SCALING COMMANDS
+au = do automatic dispersion curve solutions, based on one input line
+        from the screen and a disk file of old dispersion information.
+em = work with emission features instead of absorption features
+he = print this message
+ma = do manual dispersion solutions, by pointing at and naming lines
+px = go back to a pixel scale
+qu = quit this routine
+rv = reverse the spectrum from left to right
+sa = adopt the same dispersion solutions as given in old disk files
+sh = use old dispersion coefficients but shifted by a given amount
+so = set the order of a polynomial fit
+
+^widhelp^
+EQUIVALENT WIDTH COMMAND SUMMARY
+ab = abort and return to SPECTRE
+cd = do continuum division; a blown-up plot will be used here, in order for
+        the user to define accurately the continuum placement. The continuum 
+        points will be cursor-defined.
+d0 = replot the entire spectrum, with intensities from zero to the maximum.
+he = write out the list of WIDTH commands on the screen.
+lf = create a disk file containing the line positions desired.
+ln = do the E. W. for one line automatically.
+ml = do many lines, taking the line list from a disk file.
+mm = read in list of multiple files and sequentially perform 'ml' on each
+np = set the number of points to be displayed in the plot
+qu = quit and return to SPECTRE
+rc = reset the continuum to its original value
+sr = do a Simpson's Rule integration
+ul = do one line manually, asking the user for all line parameters.
+
+^ac comhelp^
+ac [main command loop]
+Add a constant, designated by the user, to every flux value of the 
+x-, y-, or z-array.  The user also will be asked if the array is to 
+be shifted in pixel space.
+
+^ad comhelp^
+ad [main command loop]
+Add the x and y-arrays.  The sum will replace the original x-array,
+and will be displayed after addition. The y-array may be shifted 
+in pixel space before the addition.
+
+^ag comhelp^
+ag [main command loop]
+Replot the x-array, using the same plot boundaries as are
+currently in effect.  This is useful for clearing a cluttered
+display
+
+^al comhelp^
+al [main command loop]
+Take the base-10 antilog of points in the x-, y-, or z-array,
+and display the result.
+
+^av comhelp^
+av [main command loop]
+Smooth the data of the x-array by standard functions.  The user is
+asked to choose between simple, triangular, or Gaussian mean
+functions.  Then the number of points to average (in the simple
+or triangular mean cases) or the FWHM (in the Gaussian case)
+must be entered.
+
+^av mulhelp^
+av [multi command loop]
+Smooth the data of the x-array by standard functions.  The user is
+asked to choose between simple, triangular, or Gaussian mean
+functions.  Then the number of points to average (in the simple
+or triangular mean cases) or the FWHM (in the Gaussian case)
+must be entered. It will allow you to check each of the smoothings
+unless specified otherwise during the interactive portion.
+
+^bb comhelp^
+bb [main command loop]
+Plot a subsection of the current plot.  The cursor is used to 
+designate the lower left and upper right corners of the desired 
+section.  A plot with the new boundaries will be made of
+the x-array only.
+
+^bx comhelp^
+bx [main command loop]
+Blowup in the horizontal (pixel or wavelength) axis only.  The
+cursor is used to designate the left and right boundaries of the
+new plot dimensions.
+
+^by comhelp^
+by [main command loop]
+Blowup in the vertical (flux) axis only.  The cursor is used to 
+designate the lower and upper boundaries of the new plot dimensions.
+
+^cc comhelp^
+cc [main command loop]
+Cross-correlate the x- and y-arrays.  This a a subpackage;
+more help can be gotten via "he" after entering the package
+via "cc".
+
+^cd comhelp^
+cd [main command loop]
+Designate a continuum line for the x-array, and divide by that line
+if desired.  The cursor is used to designate a series of up
+to 25 continuum points along the spectrum in the x-array.
+After completing this, the program fits a spline curve through
+the points and asks for user approval.  If OK, the x-array
+is divided by the continuum array and the quotient array is put
+in the x-array.
+
+^ch comhelp^
+ch [main command loop]
+Chop ends from the x-, y-, or z-array.  The user must designate
+how many points at either array end to chop off.  Any prior
+dispersion solution will be destroyed by this command.
+
+^cl comhelp^
+cl [main command loop]
+Clear and update the top part of the information screen (that part
+which contains information about the arrays).  This is useful
+when the information screen gets partially overwritten with
+garbage.
+
+^cr comhelp^
+cr [main command loop]
+Excise "cosmic ray" emission spikes.  The cursor is used to
+designate the vertical discrimination level between real data
+and anomalous radiation events.  Any flux point above that level
+will be removed, and a point interpolated from "good" points
+to either side of the offending point(s) is substituted.
+
+^d0 comhelp^
+d0 [main command loop]
+Reset the plot boundaries to those that will acommodate the whole
+x-array, clear the screen, and replot the x-array.  The vertical
+scale automatically is set from a lower bound of zero and an upper
+bound a bit larger than the largest flux point of the x-array.
+
+^dc comhelp^
+dc [main command loop]
+Implant a dispersion curve on the x-array.  This is a subpackage;
+more help can be gotten via "he" after entering the package
+via "dc".
+
+^de comhelp^
+de [main command loop]
+Deconvolve (sharpen) a spectrum.  This uses the algorithms suggested
+by Ron Gilliland for the Space Telescope GHRS data.  The instrumental
+function that produced the smeared observed spectrum must be known
+to do this trick!  Here, a simple Gaussian instrumental function
+is assumed.  The user must specify the smoothing FWHM of that
+Gaussian, and tell the routine how fast to make changes by specifying
+the "relaxation" size (typically a number like 0.1 to 0.5; you just have
+to experiment).  Iterations of successive sharpening will be done
+at the user's request.  As of now, there is no independent statistical
+test of how sharp is good enough.  Caveat Emptor!
+
+^df comhelp^
+df [main command loop]
+Delete files, one at a time.  The user is prompted for the name
+of each file to be removed.  As with all delete operations, this
+is a potentially dangerous toy that should not be used by children.
+
+^du comhelp^
+du [main command loop]
+Dump the data of the x-, y-, and/or z-arrays into ASCII files that
+consist of one header line and "n" lines of wavelength/pixel and
+flux pairs.  The user is asked for a prefix name for the files, and
+suffixes of "1", "2", and/or "3" are appended for the different 
+arrays. This is useful when it is desired to feed the spectra
+to another program or plotting routine (e.g. MONGO).
+
+^du mulhelp^
+du [multi command loop]
+Read the data from the files into the x-array and then dump the
+array into ASCII files that consist of one header line and "n" lines 
+of wavelength/pixel and flux pairs. 
+
+^Dv comhelp^
+dv [main command loop]
+Divide the x- by the y-array, and store the quotient in the
+x-array.  The y-array may be shifted before division.
+
+^dx comhelp^
+dx [main command loop]
+Display the x-array in the plot box that already is set up.
+Do not reset the plot boundaries, and do not erase what is already
+plotted.
+
+^dy comhelp^
+dy [main command loop]
+Display the y-array in the plot box that already is set up.
+Do not reset the plot boundaries, and do not erase what is already
+plotted.
+
+^dz comhelp^
+dz [main command loop]
+Display the z-array in the plot box that already is set up.
+Do not reset the plot boundaries, and do not erase what is already
+plotted.
+
+^eb comhelp^
+eb [main command loop]
+Replot the x-array, with values for the left, right, lower and upper 
+boundaries explicitly named by the user.
+
+^ed comhelp^
+ed [main command loop]
+Edit the flux of a data point in the x-array.  This is the ultimate
+data fudging command of SPECTRE.  The user points to a data point
+whose flux value is wrong, and then points to the flux value that
+it should have!
+
+^el comhelp^
+el [main command loop]
+Do emission line plots.  This command has not been implemented
+successfully yet.  Ignore it.
+
+^eq comhelp^
+eq [main command loop]
+Compute equivalent widths of lines in the x-array.  This is a 
+subpackage; more help can be gotten via "he" after entering 
+the package via "eq".
+
+^fc comhelp^
+fc [main command loop]
+Flatten the continuum of the x-array in regularly spaced intervals.
+The user si asked to specify the wavelength intervals, and
+to specify what fraction of the points to use.  The command
+averages this fraction of highest points in each interval to
+produce a set of continuum points.  A spline function is fit through
+these points, and if the user approves the continuum will be
+divided by the newly-generated continuum array.
+
+^fl comhelp^
+fl [main command loop]
+Flatten the continuum of the x-array, beginning with entry of a preset 
+number of continuum wavelength intervals stored in a file.  The
+highest flux values in those intervals are averaged to provide
+the continuum points.  Then a spline function is fit through those
+points, and after user approval, is divided into the x-array
+with the quotient replacing the x-array.
+
+^ft comhelp^
+ft [main command loop]
+
+Fourier transform smoothing of the x-array fluxes.  The command
+computes a power spectrum, and tries to make a best guess at the 
+real spectrum signal and the noise, and then computes a trial
+filter.  The user can override these decisions at several steps
+of the command.
+
+^fz comhelp^
+fz [main command loop]
+Redraw the plot of the x-array, forcing the lower plot boundary
+to be zero but leaving all other boundaries as they were.
+
+^gl comhelp^
+gl [main command loop]
+Remove "glitches" from the x-, y-, or z-array. The user designates
+the range of bad points to be interpolated over, either manually
+at the keyboard or from a named file of bad point ranges.
+
+^hc comhelp^
+hc [main command loop]
+Make a hardcopy plot of what is displayed on the screen.  The
+user is asked for an overall plot title, and asked whether
+any or all of the x-, y-, and/or z-arrays should be plotted.
+The current plot boundaries are obeyed for the hard copy.
+
+^hd comhelp^
+hd [main command loop]
+Display the FITS header of a file to be named by the user.
+
+^he comhelp^
+he [main command loop]
+Write a very brief summary of the uses of each SPECTRE command.
+If you need help on the "he" command, you are in big trouble.
+
+^lg comhelp^
+lg [main command loop]
+Take the base-10 logarithm of points in the x-, y-, or z-array,
+and display the result.
+
+^li comhelp^
+li [main command loop]
+Make a Gaussian line.  The user creates a Gaussian line by designating
+continuum level, position of line center, and near-half-width
+points.  This is useful in trying to de-blend lines.
+
+^ll comhelp^
+ll [main command loop]
+This will change the line list you can overplot during the 
+interactive equivalent width measuring
+
+^lp comhelp^
+lp [main command loop]
+This will take the line list as defined by 'll' and plot lines onto
+the current plot
+
+^ls comhelp^
+ls [main command loop]
+Produce a file list of the current directory.  This is the nearly
+full equivalent to the UNIX "ls" command.  It just looks
+uglier on the screen.
+
+
+^mc comhelp^
+mc [main command loop]
+This has several commands which can be run on many files 
+automatically. First asks for which command you would like to 
+perform then for two files. The first file contains a list of input 
+filenames and the second file contains the correspoinding output file 
+names. The file names must all appear on seporate lines. The code 
+takes the input file performs a specified command and then writes to 
+the output file name. 
+
+^me comhelp^
+me [main command loop]
+Merge the x- and y-arrays in wavelength space.  This is most
+useful for merging overlapping individual echelle orders of
+a given spectrum.  The two arrays are displayed together,
+and then the user designates the type of merging desired:
+straight mean or weighted in declining fashion toward each array
+end.  
+
+^mo comhelp^
+mo [main command loop]
+Actually, copy the contents of one array to another array.
+The user designates source and target arrays.
+
+^mu comhelp^
+mu [main command loop]
+Multiply the fluxes of the x-, y-, or z-array by a constant.
+The user also can shift the array by a designated number of pixels
+during this operation.
+
+^no comhelp^
+no [main command loop]
+Compute the signal-to-noise level of a spectral interval.
+The cursor is used to designate left and right boundaries
+of the desired region.  A plot blowup of that region is
+given, along with the statistics of the points contained in that
+region.
+
+^pi comhelp^
+pi [main command loop]
+Pick a point of the x-array with the cursor, and the
+wavelength, flux, and pixel (if different from "wavelength")
+will be displayed under that point.  only the horizontal
+position of the cursor matters here, and the actual data point
+nearest the cursor position will be picked.
+
+^pl comhelp^
+pl [main command loop]
+Repeatedly pick points to mark wavelength/pixel and flux
+information.  It allows multiple picks with the cursor without
+each time having to retype the "pi" command.
+
+^po comhelp^
+po [main command loop]
+Point at a wavelength/pixel designated by the user.  A blowup
+plot of that region will be displayed.
+
+^pr comhelp^
+pr [main command loop]
+Print out (on the screen) the wavelength/pixel and flux pairs 
+for the x-, y-, or z-array.
+
+^px comhelp^
+px [main command loop]
+Display just the x-array points in the plot box that already is set up.
+Do not reset the plot boundaries, and do not erase what is already
+plotted. Plot points only; do not "connect the dots".
+
+^py comhelp^
+py [main command loop]
+Display just the y-array points in the plot box that already is set up.
+Do not reset the plot boundaries, and do not erase what is already
+plotted. Plot points only; do not "connect the dots".
+
+^pz comhelp^
+pz [main command loop]
+Display just the z-array points in the plot box that already is set up.
+Do not reset the plot boundaries, and do not erase what is already
+plotted. Plot points only; do not "connect the dots".
+
+^qu comhelp^
+qu [main command loop]
+Quit the SPECTRE program.
+
+^r0 comhelp^
+r0 [main command loop]
+Remove all flux zeros from the x-, y-, or z-array.  Replace each
+zero with a flux linearly interpolated from the nearest 
+healthy points.
+
+^rb comhelp^
+rb [main command loop]
+Re-bin the x-, y-, or z-array.  The user is queried for the desired
+beginning and ending wavelengths and the wavelength step size.
+Spline interpolation is used to create the now array, which
+replaces the original array after user approval.
+
+^rd comhelp^
+rd [main command loop]
+Read in a FITS file into the x-, y-, or z-array.  Only a FITS
+file works.  The user must designate the file name, and the
+desired order number of a multiple-order spectrum file.
+
+^re comhelp^
+re [main command loop]
+Replace the data in the file name of the x-, y-, or z-array
+with the data of that array.  This is useful when a spectrum is
+read in, manipulated, and then saved to the same file name.
+
+^rm comhelp^
+rm [main command loop]
+Remove telluric lines from the x-array, using an appropriate
+divisor spectrum contained in the y-array.  This a a subpackage;
+more help can be gotten via "he" after entering the package
+via "rm".
+
+^rn comhelp^
+rn [main command loop]
+Renormalize the flux values of the x-, y-, or z-array.  The
+cursor is used to designate a normalization flux level, and
+the user is asked to declare the flux of that level.  The whole
+array is adjusted to that level.
+
+^rt comhelp^
+rt [main command loop]
+Read a text file.  This is like "rd", except that it works
+for an ASCII file of: one line of header information, and
+"n" lines of wavelength/pixel and flux pairs.
+
+
+
+
+^sa comhelp^
+sa [main command loop]
+Save the contents of the x-, y-, or z-array into a FITS file.
+The FITSS filename is designated by the user.
+
+^sc comhelp^
+sc [main command loop]
+Set a continuum into the y-array.  This is almost like a manual
+continuum division (command "dc"), in that the user marks
+the desired continuum points of the x-array with the cursor.
+But after this continuum point set is fit with a spline function,
+no division of the x-array occurs.  The spline continuum curve
+is simply put in the y-array.
+
+^si comhelp^
+si [main command loop]
+Create a sine wave, using parameters of the wave (frequency,
+amplitude, etc.) designated by the user.  The sine wave is stored
+in the y-array.
+
+^sp comhelp^
+sp [main command loop]
+Split current display into two equal wavelength/pixel halves,
+and display those halves in upper and lower plots on the screen.
+Not much can be done with this display, but it is useful 
+for blowing up a plot in wavelength.
+
+^st comhelp^
+st [main command loop]
+Update the information written in the array status part of the information
+screen.  This command has been largely superseded by the "cl"
+command.
+
+^su comhelp^
+su [main command loop]
+Subtract the y-array from the x-array, in pixel space.  The y-array
+may be shifted a number of pixels before subtraction.
+
+^tc comhelp^
+tc [main command loop]
+Compute optical depth values for the fluxes in the x-array,
+and store them in the x-array.  A single-slab approximation is
+of course assumed.  It is best used with continuum normalization
+set to 1.0.
+
+^ti comhelp^
+ti [main command loop]
+Change the title (OBJECT keyword of the FITS header) of the
+x-, y-, or z-array.
+
+^tl comhelp^
+tl [main command loop]
+Take out an overall flux "tilt" in the x-, y-, or z-array.  This
+command simply takes the average of points near the beginning and
+end of the array, draws a straight line between those average
+values, and divides by the resulting line after user approval.
+
+^vn comhelp^
+vn [main command loop]
+Cancel a radial velocity shift to the x-, y-, or z-array.  
+The radial velocity shift for that array has been entered
+into the FITS header from which the array was read. 
+The shift can be turned off with this command.
+
+^vs comhelp^
+vs [main command loop]
+Set the desired radial velocity shift for the x-, y-, or z-array.
+This is done via user declaration of the shift.  There is a choice of 
+entering a radial velocity, or entering delta lambda and the observed
+lambda.
+
+^vs mulhelp^
+vs [multi command loop]
+This applys a desired radial velocity or wavelength shift to a 
+set of files at one. This is done via user declaration of the shift. 
+There is a choice of entering a radial velocity, or entering delta 
+lambda and the observed lambda.
+
+^vy comhelp^
+vy [main command loop]
+Apply a radial velocity shift to the x-, y-, or z-array.  
+The radial velocity shift for that array has been entered
+into the FITS header from which the array was read. 
+The shift can be turned off with this command.
+
+^xp comhelp^
+xp [main command loop]
+Expand the number of points in the x-array by a multiplicative
+amount designated by the user.  A small portion of the 
+spline-interpolated resultant spectrum is displayed for the
+approval of the user.
+
+^xy comhelp^
+xy [main command loop]
+Exchange the contents of the x- and y-arrays.
+
+^xz comhelp^
+xz [main command loop]
+Exchange the contents of the x- and z-arrays.
+
+^yz comhelp^
+yz [main command loop]
+Exchange the contents of the y- and z-arrays.
+
+^ze comhelp^
+ze [main command loop]
+Zero the ends of the x-, y-, or z-array.  The user specifies
+how many points on either array end to replace by zeros.
+
+^zi comhelp^
+zi [main command loop
+Zoom in on a particular region of the current plot boundaries.  
+The cursor points at the desired region, and the plot is 
+blown up by a factor of two around the cursor.  The x-array
+will then be replotted.
+
+^zo comhelp^
+zo [main command loop]
+Zoom out by a factor of two.  Each "zo" command effectively
+cancels one "zi" command.  The new plot boundaries are 
+automatically calculated, and the x-array will be replotted.
+
+^4p comhelp^
+4p [main command loop]
+Four-point normalization.  This is a mostly obsolete command
+from the days of the RETICON detectors, in which succeeding
+pixel signals were fed to different amplifiers, repeating
+every four pixels.  This command has not been tested recently;
+use at your own risk.
+
+^4n comhelp^
+4n [main command loop]
+Four-point normalization.  This is a mostly obsolete command
+from the days of the RETICON detectors, in which succeeding
+pixel signals were fed to different amplifiers, repeating
+every four pixels.  For this command, the spectrum is divided
+into four subsections, and the "4p" renormalizations are
+computed for each subsection. This command has not been 
+tested recently; use at your own risk.
+
+^8p comhelp^
+8p [main command loop]
+Eight-point normalization.  This is a mostly obsolete command
+from the days of the RETICON detectors, in which succeeding
+pixel signals were fed to different amplifiers, repeating
+every four pixels.  It was thought that an 8-point repeating
+pattern could be seen, hence this command.  This command has 
+not been tested recently; use at your own risk.
+
