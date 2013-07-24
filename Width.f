@@ -476,8 +476,8 @@ c     the following checks for the first line of the order
       call single (mode,wave,wavout,ipt,depth,halfl,halfr,eqwdth)
 
 c***** The Prompt
- 503  message = 'RECORD THIS LINE ([y],o,a,h)? '
-      nchars = 30
+ 503  message = 'RECORD THIS LINE ([y],o,...,h)? '
+      nchars = 32
       call getasci (nchars)
 
 c**** The Prompt Options
