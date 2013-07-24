@@ -51,6 +51,27 @@ xz = exchange x and z arrays          yz = exchange y and z arrays
 ze = zero array ends                  zi = zoom in on a plot                
 zo = zoom out on a plot
 
+^fithelp^
+INTERACTIVE LINE FITTING COMMANDS
+. = add a note about the current line
+a = abort, saves progress and quits
+b = go back one line (erases current information)
+c = refit line by setting continuum
+dy = display the y-array
+dz = display the z-array
+li = create a gaussian line and divide from the data
+ll = choose which linelist to overplot
+n = refit line manually
+p = zoom, change the number of points
+quit = same as [a]bort 
+r = redraw the plot without the line profile
+s = do simpson's rule integration
+t = toggle on/off the overplotted linelist
+v = modify line profile to be voigt
+y = confirm line (default with enter)
+
+
+
 ^corhelp^
 CROSS CORRELATION COMMAND SUMMARY
 ab = Do a general abort and return to the main program
