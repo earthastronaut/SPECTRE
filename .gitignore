@@ -1,0 +1,13 @@
+# Emacs #
+#########
+*~
+
+# Compiled Source #
+###################
+*.o
+lib*.a
+
+# dsgSPECTRE Specific #
+#######################
+SPECTRE
+Originals
