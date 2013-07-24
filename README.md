@@ -28,9 +28,9 @@ In a shell you try running
 
 This will show you some more information about the which make file to use. Then run. You may need to edit paths to libraries and executables within the desired make file. Then
 
-    make -f Makefile.????
+    make -f Makefile.**
 
-Where ???? is replaced with the correct choice for you system. The systems which have been tested are MacOSX and Redhat. Others come with no gaurentee but hopefully some guidelines. If you fix things to make it work let me know.
+Where ** is replaced with the correct choice for you system. The systems which have been tested are MacOSX and Redhat. Others come with no gaurentee but hopefully some guidelines. If you fix things to make it work let me know.
 
 <br>
 
