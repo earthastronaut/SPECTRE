@@ -99,13 +99,13 @@ c      call mrklin (wavout)
       call sm_relocate (right-0.25*(right-xleft),down+0.09*(up-down))
       call sm_putlabel (6,errmess)
       write (errmess,1006) wavout
-1006  format ('LINE FOUND = ',f8.3)
+1006  format ('LINE FOUND = ',f10.3)
       call sm_relocate (xleft+0.02*(right-xleft),down+0.25*(up-down))
       call sm_putlabel (6,errmess)
       call sm_ctype (colors(4))
       write (errmess,1005) wave
 c The goal of the following was to keep the "line Sought" visible through all measurement attempts
-1005  format ('LINE SOUGHT = ',f8.3)
+1005  format ('LINE SOUGHT = ',f10.3)
       call sm_relocate (xleft+0.02*(right-xleft),down+0.17*(up-down))
       call sm_putlabel (6,errmess)
 

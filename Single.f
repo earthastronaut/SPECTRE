@@ -28,12 +28,12 @@ c      call mrklin (wavout)
       call sm_ctype (colors(2))
       call sm_expand (0.9)
       write (errmess,1006) wavout
-1006  format ('LINE FOUND = ',f8.3)
+1006  format ('LINE FOUND = ',f10.3)
       call sm_relocate (xleft+0.02*(right-xleft),down+0.25*(up-down))
       call sm_putlabel (6,errmess)
       call sm_ctype (colors(4))
       write (errmess,1005) wave
-1005  format ('LINE SOUGHT = ',f8.3)
+1005  format ('LINE SOUGHT = ',f10.3)
       call sm_relocate (xleft+0.02*(right-xleft),down+0.17*(up-down))
       call sm_putlabel (6,errmess)
       if (jpt .le. 0) then
