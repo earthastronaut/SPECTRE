@@ -45,11 +45,11 @@ c     endif
 c*****If line is to be omitted
       if (eqwdth .eq. -9999.) then
          write (array,1007) wave,wavout
- 1007    format (2f13.3,4(4x,'------'))
+ 1007    format (2f13.3,4(4x,'------'),2x,a)
 c     the difference being this is written to a file
          if (.not.onelin .and. kout .gt. 0 ) then
 c     if (kount .eq. kkount) backspace (unit=31)
-            write (31,1007) wave,wavout
+            write (31,1007) wave,wavout,widthnote
          endif
 
       else
