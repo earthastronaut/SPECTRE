@@ -28,7 +28,7 @@ c     ----------------------------         ------------------------------
       include 'Plotchr.com'
       include 'Scrnval.com'
       real*4 smlxtic,bigxtic,smlytic,bigytic
-      real*4 x(10000),y(10000),style(1)
+      real*4 x(131072),y(131072),style(1)
       logical markers,hardcop
       real*4 cols(3)
       integer mycolor

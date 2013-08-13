@@ -4,7 +4,7 @@ c
 c     icod  < 0  =>  forward application of data window
 c     icod >= 0  =>  reverse application of data window
  
-      real*4 data(10000)
+      real*4 data(131072)
       data pi/3.14159265358979/
  
       factor(i,nd10,pi)=(1.0-cos(pi*float(i-1)/float(nd10)))/2.0

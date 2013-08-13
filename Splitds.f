@@ -3,7 +3,7 @@ c*****display the array X on a split screen.  Does the same as a
 c*****call to split with 2 quadrants but makes coding easier
  
       include 'Plotval.com'
-      real*4 x(10000),y(10000)
+      real*4 x(131072),y(131072)
 
 c*****plot left half on first quadrant
       oldlft = xleft

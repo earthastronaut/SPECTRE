@@ -5,7 +5,7 @@ c     halfwidths of the lines from spline interpolations.
       include 'Plotval.com'
       include 'Mathval.com'
       include 'Chars.com'
-      real*4 pts(10000),wl(10000)
+      real*4 pts(131072),wl(131072)
       real*8 total,square
 
 c*****copy array into ss for sort

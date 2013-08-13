@@ -3,7 +3,7 @@
 c*****this routine prints out (wl,pts) pairs of spectrum data
 
       include 'Chars.com'
-      real*4 wl(10000),pts(10000)
+      real*4 wl(131072),pts(131072)
       
       write (message,1005)
 1005  format (30x,'SPECTRUM DATA PAIRS' ,30x)

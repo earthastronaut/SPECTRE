@@ -3,7 +3,7 @@
      .     type1,type2)
 c*****this routine flips the contents of spectrum arrays "1" and "2"
  
-      real*4 p1(10000), p2(10000), wl1(10000), wl2(10000)
+      real*4 p1(131072), p2(131072), wl1(131072), wl2(131072)
       real*8 disp1(9), disp2(9)
       character*80 xf1, xf2, dum80
       character*20 fn1, fn2, ob1, ob2, dum20
@@ -32,7 +32,7 @@ c*****this routine flips the contents of spectrum arrays "1" and "2"
       type1 = type2
       type2 = dum4
 
-      do i=1,10000
+      do i=1,131072
          call rswitch (p1(i),p2(i))
          call rswitch (wl1(i),wl2(i))
       enddo

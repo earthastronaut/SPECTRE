@@ -8,7 +8,7 @@ c     two levels
       include 'Chars.com'
       include 'Plotval.com'
       include 'Mathval.com'
-      real*4 pts(10000), wl(10000)
+      real*4 pts(131072), wl(131072)
       logical splitd
 
 c     determine the number of points in the first and last 15% of the array

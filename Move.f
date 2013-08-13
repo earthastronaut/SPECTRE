@@ -2,7 +2,7 @@
      .                 ob1,ob2,fn1,fn2,xf1,xf2,xa1,xa2,type1,type2)
 c*****this routine moves the contents of spectrum array "1" to "2"
  
-      real*4 p1(10000), p2(10000), wl1(10000), wl2(10000)
+      real*4 p1(131072), p2(131072), wl1(131072), wl2(131072)
       real*8 disp1(9), disp2(9)
       character*80 xf1, xf2
       character*20 fn1, fn2, ob1, ob2
@@ -16,7 +16,7 @@ c*****this routine moves the contents of spectrum array "1" to "2"
       xf2 = xf1
       type2 = type1
 
-      do i=1,10000
+      do i=1,131072
          p2(i) = p1(i)
          wl2(i) = wl1(i)
       enddo

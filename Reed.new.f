@@ -17,7 +17,7 @@ c
       character charstat*7, filestyle*4
       character*2 orderchar
       character*1 longspec
-      real*4 pts(10000), wl(10000), ptxx, wlxx
+      real*4 pts(131072), wl(131072), ptxx, wlxx
       real*8 disp(9), disp1(9)
       integer apline, waveiraf, oned
       integer apnum, specnum, dcflag, order, polytype
@@ -38,7 +38,7 @@ c     added 'spectredisp' because otherwise it tries to use the WV_0_ header inf
       integer spectredisp, MaxNpts, mode
 
 c**** initalize variables    
-      MaxNpts = 10000
+      MaxNpts = 131072
 
 c*****get ready to open a spectrum file
       fname1 = fname

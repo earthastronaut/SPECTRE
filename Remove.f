@@ -12,7 +12,7 @@ c     steps along the way.
       double precision xnum
       integer linpos(25),copflg
       real*8 dhold(7)
-      real*4 dum1(10000)
+      real*4 dum1(131072)
       character zcopy*1
  
 c*****this section is for user commands

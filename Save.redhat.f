@@ -10,7 +10,7 @@ c
       include 'Chars.com'
       character fname*80,newname*80,object*20,arrayn*3,newhead*2880
 c      character newfile*80
-      real*4 pts(10000),wl(10000)
+      real*4 pts(131072),wl(131072)
       real*8 disp(9)
       character charstat*7,keyword*8
       byte      int1(2880), onebyte

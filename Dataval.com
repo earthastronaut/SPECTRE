@@ -1,6 +1,6 @@
       common /dataval/ dispx(9),  dispy(9),  dispz(9),
-     .                 x(10000),   y(10000),   z(10000),
-     .                 wlx(10000), wly(10000), wlz(10000),
+     .                 x(131072),   y(131072),   z(131072),
+     .                 wlx(131072), wly(131072), wlz(131072),
      .                 vovercx,   vovercy,   vovercz,
      .                 npx,       npy,       npz,   
      .		       linfo

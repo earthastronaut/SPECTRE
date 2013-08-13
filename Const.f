@@ -3,7 +3,7 @@ c*****this routine adds (mode = 1) or multiplies (mode = 2) the values
 c     in "pts".
  
       include 'Chars.com'
-      real*4 pts(10000)
+      real*4 pts(131072)
       real*8 xnum
 
 c*****first shift the pts if desired

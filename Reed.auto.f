@@ -20,7 +20,7 @@ c############################################################
       character charstat*7, filestyle*4
       character*2 orderchar
       character*1 longspec
-      real*4 pts(10000), wl(10000), ptxx, wlxx
+      real*4 pts(131072), wl(131072), ptxx, wlxx
       real*8 disp(9), disp1(9)
       integer apline, waveiraf, oned
       integer apnum, specnum, dcflag, order, polytype
@@ -264,7 +264,7 @@ c*****header information: new SPECTRE-style dispersion information
 
 c*****name the desired wavelength/point region of a very long single 
 c*****order spectrum
-      if (naxis1 .gt. 10000) then
+      if (naxis1 .gt. 131072) then
          if (naxis .gt. 1) then
             write(errmess,1020) naxis, naxis1
 1020        format('ERROR: CANT DO NAXIS1 =',i6,', NAXIS1 =',i6)
@@ -296,7 +296,7 @@ c*****order spectrum
             endif
             naxlo = max0(1,int(sngl((wavlo-disp(1))/disp(2))))
             naxhi = min0(naxis1,int(sngl((wavhi-disp(1))/disp(2))))
-            if (naxhi-naxlo+1 .gt. 10000) then
+            if (naxhi-naxlo+1 .gt. 131072) then
                write(errmess,1021) naxlo, naxhi
                nchars = 46
                call puterr (nchars)
@@ -362,7 +362,7 @@ c*****beginning and ending points within the data array
 
 
 c*****initialize the arrays
-         do i=1,10000
+         do i=1,131072
             wl(i) = 0.
             pts(i) = 0.
          enddo
@@ -571,7 +571,7 @@ c*****IRAF multispec data: find a new object name, if available
 131   if (longspec .eq. 'y') then
          naxlo = max0(1,int(sngl((wavlo-disp(1))/disp(2))))
          naxhi = min0(naxis1,int(sngl((wavhi-disp(1))/disp(2))))
-         if (naxhi-naxlo+1 .gt. 10000) then
+         if (naxhi-naxlo+1 .gt. 131072) then
             write(errmess,1021) naxlo, naxhi
 1021        format('ERROR: CANT DO POINT =',i6,', TO POINT =',i6)
             nchars = 46

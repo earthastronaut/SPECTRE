@@ -12,7 +12,7 @@ c
  
       include 'Plotval.com'
       include 'Chars.com'
-      real*4 wl(10000),pts(10000)
+      real*4 wl(131072),pts(131072)
       integer  ndark(4), mask(2), ltype, ltypeB
       double precision xnum 
       logical nogo

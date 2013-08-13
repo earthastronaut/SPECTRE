@@ -5,7 +5,7 @@ c     fewer points
 
       include 'Chars.com'
       include 'Plotval.com'
-      real*4 wl(10000),pts(10000)
+      real*4 wl(131072),pts(131072)
       real*8 disp(9)
       real*8 xnum
       character option*2

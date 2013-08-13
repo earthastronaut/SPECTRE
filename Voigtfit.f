@@ -9,7 +9,7 @@ c*****this routine interactively fits Voigt functions to lines
       real*8 wavout,deltaw,v,a,voigtcal,oldhwhm,hwhm
 
 c     initialize the scratch arrays and some variables
-      do 1 i=1,10000
+      do 1 i=1,131072
          ss(i) = 0.
 1        t(i) = 0.
       oldhwhm = (halfl + halfr)/2.

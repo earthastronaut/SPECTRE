@@ -6,7 +6,7 @@ c     muct have been declared by the user
 
       character*3 type
       real*8 disp(9)
-      real*4 wl(10000), voverc, delta
+      real*4 wl(131072), voverc, delta
 
       if (type .eq. 'yes') then
          delta = voverc

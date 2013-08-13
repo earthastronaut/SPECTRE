@@ -87,7 +87,7 @@ c*****initialize some variables
          dispx(i) = 0.
          dispy(i) = 0.
 10       dispz(i) = 0.
-      do 20 i=1,10000
+      do 20 i=1,131072
          x(i) = 0.
          y(i) = 0.
          z(i) = 0.

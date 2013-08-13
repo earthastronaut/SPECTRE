@@ -13,7 +13,7 @@ c                              into which reflected data will be inserted)
       include 'Chars.com'
       include 'Mathval.com'
       include 'Plotchr.com'
-      real*4 datar(10000), datai(10000), freq(2048), filt(7),
+      real*4 datar(131072), datai(131072), freq(2048), filt(7),
      .       filter(2048),power(2048)
       equivalence (datar(1),wly(1)),(filter(1),x(2049)),
      .            (power(1),wlz(1)),(datai(1),wlx(1)), 
@@ -36,7 +36,7 @@ c*****initialize the variables
       j2 = npx
       if (jpts .lt. 16) go to 260
       ixh = jpts
-      do i=1,10000
+      do i=1,131072
          datar(i) = 0.0
          datai(i) = 0.0
       enddo

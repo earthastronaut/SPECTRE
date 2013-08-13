@@ -22,8 +22,8 @@ c     ask for the multiplication factor for the number of points
             errmess = 'MULTIPLICATION FACTOR MUST BE >= 0! TRY AGAIN'
             nchars = 45
             go to 1 
-         elseif (int(xnum*npx) .gt. 10000) then
-            errmess = 'NEW ARRAY WOULD BE > 10000 POINTS; TRY AGAIN'
+         elseif (int(xnum*npx) .gt. 131072) then
+            errmess = 'NEW ARRAY WOULD BE > 131072 POINTS; TRY AGAIN'
             nchars = 43
             call puterr (nchars)
             go to 1 
@@ -56,7 +56,7 @@ c     interpolate the x-array
      .          x(ilow+3)*(p+1.)*(-p)*(p*p-4.)/6. +
      .          x(ilow+4)*(p*p-1.)*p*(p+2.)/24.
       ipt = ipt + 1
-      if (ipt .gt. 10000) go to 30
+      if (ipt .gt. 131072) go to 30
       go to 5
 
 c     plot the result

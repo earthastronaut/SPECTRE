@@ -11,7 +11,7 @@ c     1992, PASP, 367.
       include 'Chars.com'
       real*8 fwhm, delmax, sigma, aa, power
       real*4 p(50), minval, maxval, relax
-      real*4 lastspec(10000), newspec(10000), smeared(10000)
+      real*4 lastspec(131072), newspec(131072), smeared(131072)
       equivalence (lastspec,ss), (newspec,t), (smeared,scratch)
 
 c   get the input parameters of the fwhm of the assumed gaussian

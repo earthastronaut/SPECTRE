@@ -7,12 +7,12 @@ c     header information as possible
       character fname*80, obsname*20, object*20, arrayn*3
       character fname1*80, obsnam1*20, object1*20, arrayn1*3
       character charstat*7, filestyle*4
-      real*4 pts(10000), wl(10000)
+      real*4 pts(131072), wl(131072)
       real*8 disp(9), disp1(9)
       real*8 pixel(25), wavelength(25)
       integer MaxNpts
 
-      MaxNpts = 10000
+      MaxNpts = 131072
 
 
 c*****get ready to open a spectrum file

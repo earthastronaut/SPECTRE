@@ -4,7 +4,7 @@ c     handle the zeroes in the first or last parts of the arrays; that must
 c     be done from the 4p command
 
       include 'Chars.com'
-      real*4 data(10000)
+      real*4 data(131072)
 
       write (message,1001)
 1001  format (28(' '),'ZERO REMOVAL INFORMATION',27(' '))

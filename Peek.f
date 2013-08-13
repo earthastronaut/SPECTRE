@@ -7,7 +7,7 @@ c     number of arrays to be plotted are given by parameter "nspec".
       include 'Plotval.com'
       include 'Mathval.com'
       include 'Chars.com'
-      real*4 pixel(10000)
+      real*4 pixel(131072)
  
       ileft = 1
       iright = min0(ileft+299,npx)

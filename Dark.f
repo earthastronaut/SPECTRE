@@ -4,7 +4,7 @@ c     and then masks it.
  
       include 'Chars.com'
       integer ndark(4),mask(2)
-      real*4 data(10000)
+      real*4 data(131072)
 
       if ((ndark(1).le.ndark(2)) .and. (ndark(2).gt.0 .and.
      1   mask(1).gt.0))  go to 101

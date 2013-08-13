@@ -5,7 +5,7 @@ c*****this routine, from Numerical Recipes (called "shell" in that book)
 c     sorts an array "pts" of length "npt" into ascending numerical order,
 c     by the Shell-Mezgar algorithm (diminishing increment sort).
       
-      real*4 pts(10000), t
+      real*4 pts(131072), t
       real*8 aln2i, tiny
             
       aln2i = 1.0/0.69314718

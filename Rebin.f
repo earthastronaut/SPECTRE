@@ -8,7 +8,7 @@ c     point to the desired step will be adopted for the rebinned spectrum
       include 'Mathval.com'
       include 'Plotval.com'
       real*8 wave1,wave2,step1,wavenow,xnum
-      real*4 wl(10000),pts(10000)
+      real*4 wl(131072),pts(131072)
       real*8 disp(9)
       character*4 filetype
 

@@ -31,6 +31,14 @@ c      codepath = "/uufs/astro.utah.edu/common/astro_data/sp/"
       codepath = "/Applications/astro/dsgSPECTRE/"
 
 
+c     NOTE: regarding the number of points in the arrays. 131072
+c      Orginally the value
+c      was 4096 pixels. This has been extended to deal with data of longer
+c      array lengths. The one suggestion given by Chris Sneden is that some of 
+c      the computational routines may require the points be a factor of 2.
+c      So to handle number of points n=126000 you need to have the array 
+c      length of L= int(log(n)/log(2)+0.5)
+c      You can run a function called ./set_array_length.py
 
 c==================  END USER SETUP AREA  =====================================c
 c##############################################################################c

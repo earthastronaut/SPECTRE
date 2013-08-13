@@ -4,7 +4,7 @@ c     this was borrowed from hagai netzer who borrowed it
 c     from someone else. . .
  
       integer p,q,r,s
-      dimension xr(10000),xi(10000),ir(4,6),imx(7)
+      dimension xr(131072),xi(131072),ir(4,6),imx(7)
       equivalence (i2max,imx(1)),(i3max,imx(2)),(i4max,imx(3)),
      .            (i5max,imx(4)),(i6max,imx(5)),(i7max,imx(6)),
      .            (i8max,imx(7))
@@ -171,7 +171,7 @@ c     from someone else. . .
                      i6s = i6 + i5s - 1
                      do 15 i7=1,i7max,1024
                         i7s = i7 + i6s - 1
-                        do 15 i8=1,i8max,10000
+                        do 15 i8=1,i8max,131072
                            r = i8 + i7s
                            i = i + 1
                            if(i-r .lt. 0) then

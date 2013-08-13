@@ -2,7 +2,7 @@
 c*****this routine determines the correlation of array 'x' and array 'y',
 c     comparing array elements 'i' in 'x' with elements 'i+ishift'.
  
-      dimension x(10000),y(10000)
+      dimension x(131072),y(131072)
       real*8 xsum,ysum,xysum,x2sum,y2sum,covar,varx,vary
  
       xsum = 0.

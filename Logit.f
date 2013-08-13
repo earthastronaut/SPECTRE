@@ -5,7 +5,7 @@ c     depending on the value of mode
       include 'Chars.com'
       include 'Plotchr.com'
       include 'Plotval.com'
-      real*4 pts(10000),wl(10000)
+      real*4 pts(131072),wl(131072)
  
       if (mode .eq. 1) go to 20
 

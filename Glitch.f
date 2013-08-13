@@ -3,7 +3,7 @@ c*****counts got from linear interpolation between nblu-1 and nred+1
 c     are substituted for counts in nblu thru nred to remove glitch.
 
       include 'Chars.com'
-      real*4 data(10000)
+      real*4 data(131072)
       real*8 xnum
       character charstat*7
       character yesno*1
