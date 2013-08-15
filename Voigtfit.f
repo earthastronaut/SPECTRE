@@ -37,6 +37,8 @@ c     decide what to do next
          go to 40 
       elseif (array(1:1) .eq. 'n') then
          go to 50
+      elseif (array(1:1) .eq. 'o') then
+         return
       else
          go to 5
       endif
