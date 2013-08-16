@@ -31,7 +31,7 @@ c#######################################################################
       character fname*80,mess*80,oname*80, tmp*70, widthnote*80
       character charstat*7
       real*8 wave,wavout,xnums(5),nub,spe,ep,loggf
-      logical nogo,onelin, linopt, multo, firstmm
+      logical nogo,onelin, linopt, multo, firstmm, isFits
       integer kin, kout
       data ndel/50/
 
@@ -39,6 +39,7 @@ c*****initialize some variables
       onelin = .true.
       linopt = .false.
       multo = .false.
+      isFits = .true.
 
 c     kount was replaced by kin and kout
 c     This counter follows the input line list
@@ -198,17 +199,8 @@ c     command 'mm'
       onelin = .false.
       multo = .true.
 
-c*****read the file list
-      message = 'GIVE THE FILE NAME OF THE ORDER LIST: '
-      nchars = 39
-      call getasci (nchars)
-      nchars = min0(nchars,80)
-      fname = array(1:nchars)
-      charstat = 'old    '
-      call dskfil(29,iostat,fname,charstat,'sequential',
-     .      'formatted  ',0)
-      if (iostat .ne. 0) go to 1
 
+c*****read the file list
       message = 'GIVE THE FILE NAME OF THE INPUT LINELIST: '
       nchars = 42
       call getasci (nchars)
@@ -219,6 +211,31 @@ c*****read the file list
      .      'formatted  ',0)
       if (iostat .ne. 0) go to 1
       firstmm = .True.
+
+
+      message = 'GIVE THE FILE NAME OF THE ORDER LIST: '
+      nchars = 39
+      call getasci (nchars)
+      nchars = min0(nchars,80)
+      fname = array(1:nchars)
+      charstat = 'old    '
+      call dskfil(29,iostat,fname,charstat,'sequential',
+     .      'formatted  ',0)
+      if (iostat .ne. 0) go to 1
+
+
+c***** What kind of files
+ 68   message = "ARE THESE FITS OR TEXT FILES? ([f],t) "
+      nchars = 38
+      call getasci (nchars)
+      if (array(1:1) .eq. 'f' .or. array(1:1) .eq. '') then
+         isFits = .true.
+      elseif (array(1:1) .eq. 't') then
+         isFits = .false.
+      else
+         go to 68
+      endif
+         
 
 c***** *** START OF MULTIPLE FILE LOOP ***
  61   read (29,1111,end=65) fname
@@ -235,26 +252,42 @@ c***** if it's not the first read in then move the current x array to the y arra
       firstmm = .False.
 
 c*****read in the data from the file to the x array
- 66   call reed (2,x,wlx,dispx,fname,xkfnam,xobj,npx,
-     .     xmin,xmax,vovercx,xary,xfile)
+ 66   if (isFits) then
+         call reed (2,x,wlx,dispx,fname,xkfnam,xobj,npx,
+     .        xmin,xmax,vovercx,xary,xfile)
+      else
+         call rtext (2,x,wlx,dispx,fname,xkfnam,xobj,npx,
+     .        xmin,xmax,vovercx,xary,xfile)
+         
+      endif
       if (wlx(1) .ne. -9999.) then
          up = 1.12*xmax
          down = 0.0
          xleft = wlx(1)
          right = wlx(npx)
          call labset (1)
-         call plotxy (1,1,wlx,x,npx,1)
       else 
          up = 0.
          down = 0.
          xleft = 0.
          right = 0.
       endif
+      
+c***** plot spectra
+ 69   xleft = wlx(1)
+      right = wlx(npx)
+      
+      up = 1.12*xmax
+      down = 0.
+      call plotxy (1,1,wlx,x,npx,1)
+
+      
+
 
 c*****Check file from overview
       write (6,903) fname,oname
  903  format (/,/,'VIEWING FILE: ',A20,'  SAVE OUTPUT AS: ',A20,
-     .     /,/,'CAUTION: WILL OVERWRITE AN EXISTING OUTPUT FILE')
+     .     /,/,'  CAUTION: WILL OVERWRITE AN EXISTING OUTPUT FILE')
  62   message = 'MEASURE THIS ORDER (y,n,r,b,a)? '
       nchars = 33
       call getasci (nchars)
@@ -268,7 +301,7 @@ c     Skip
 c     replot
       elseif (array(1:1) .eq. 'r') then
          write (6,*) 'REPLOT'
-         go to 66
+         go to 69
 c     Go back
       elseif (array(1:1) .eq. 'b') then
          backspace (29,err=67)
