@@ -704,7 +704,7 @@ c*****rt = read a MONGO-style spectrum file
       elseif (command .eq. 'rt') then
 4010        call which (arr)
             if (arr.eq.'x'.or.arr.eq.'X') then
-                  call rtext (x,wlx,dispx,xfname,xkfnam,xobj,npx,
+                  call rtext (1,x,wlx,dispx,xfname,xkfnam,xobj,npx,
      .                       xmin,xmax,vovercx,xary,xfile)
                   if (wlx(1) .ne. -9999.) then
                      up = 1.12*xmax
@@ -721,11 +721,11 @@ c*****rt = read a MONGO-style spectrum file
                  call screenstat (1)
                  call plotxy (1,1,wlx,x,npx,1)
             else if (arr.eq.'y'.or.arr.eq.'Y') then
-                 call rtext (y,wly,dispy,yfname,ykfnam,yobj,npy,
+                 call rtext (1,y,wly,dispy,yfname,ykfnam,yobj,npy,
      .                      dummy,dummy,vovercy,yary,yfile)
                  call screenstat (1)
             else if (arr.eq.'z'.or.arr.eq.'Z') then
-                 call rtext (z,wlz,dispz,zfname,zkfnam,zobj,npz,
+                 call rtext (1,z,wlz,dispz,zfname,zkfnam,zobj,npz,
      .                      dummy,dummy,vovercz,zary,zfile)
                  call screenstat (1)
             else

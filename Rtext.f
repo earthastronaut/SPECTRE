@@ -1,8 +1,12 @@
-      subroutine rtext (pts,wl,disp,fname,obsname,object,npt,
+      subroutine rtext (mode,pts,wl,disp,fname,obsname,object,npt,
      .                 xmin,xmax,voverc,arrayn,filestyle)
 c*****read a MONGO-style spectrum file into the program and provide as much
 c     header information as possible
- 
+c
+c     added input for having an automatic read
+c     mode = 1  <=== to receive a prompt for the filename
+c     mode = 2  <=== assume fname as the read in filename
+c
       include 'Chars.com'
       character fname*80, obsname*20, object*20, arrayn*3
       character fname1*80, obsnam1*20, object1*20, arrayn1*3
@@ -10,7 +14,7 @@ c     header information as possible
       real*4 pts(131072), wl(131072)
       real*8 disp(9), disp1(9)
       real*8 pixel(25), wavelength(25)
-      integer MaxNpts
+      integer MaxNpts, mode
 
       MaxNpts = 131072
 
@@ -26,15 +30,19 @@ c*****get ready to open a spectrum file
 22       disp(i) = 0.
 
 
-
 c*****Get the file name and open the file
       call blank
-      message = 'ENTER THE FILENAME: '
-      nchars =  20
-      call getasci (nchars)
+      if (mode .ne. 2) then
+         message = 'ENTER THE FILENAME: '
+         nchars =  20
+         call getasci (nchars)
+      endif
       charstat = 'old    '
       iunit = 8
-      fname = array(1:80)
+
+      if (mode .ne. 2) fname = array(1:80)
+
+
       call dskfil (iunit,jostat,fname,charstat,'sequential',
      .             'formatted  ',80)
       if (jostat .ne. 0) then
