@@ -4,13 +4,10 @@
 [quote:](http://www.as.utexas.edu/~chris/spectre.html)
 "The interactive spectrum analysis code SPECTRE grew out of codes written in the 1970's by Alan Uomoto and Peter Cottrell. SPECTRE's chief purpose is the manipulation of single-order spectra, and it performs many of the tasks contained in such IRAF routines as "splot" and "rv". It is not meant to replace the much more general capabilities of IRAF, but does some functions in a manner that are convenient for me and that others might find useful. A brief list of SPECTRE tasks are:
 
-    spectrum smoothing
-
-    equivalent width calculation
-
-    continuum rectification, noise spike excision
-
-    spectrum comparison
+* spectrum smoothing
+* equivalent width calculation
+* continuum rectification, noise spike excision
+* spectrum comparison
 
 SPECTRE was written to manipulate coude spectra, and thus is probably most useful for working on high dispersion spectra. I typically gather echelle spectra at various observatories, and reduce the raw data frames to singly-dimensioned spectra using IRAF. Then these spectra are written out as FITS files, and become thus accessible to SPECTRE.
 
